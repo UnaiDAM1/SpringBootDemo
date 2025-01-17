@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Biblioteca</title>
+    <script src="librosSimple.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #474040;
+            font-family: Arial, sans-serif;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 20px;
+            height: auto;
+            width: 400px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+            color: #333333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        label {
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        select, input, button {
+            margin: 5px 0 15px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: gray;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button[type="submit"]:nth-of-type(2) {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<div>
+    <h1>Biblioteca El Refugio del Libro</h1>
+    <form action="http://localhost:8080/ejemploServlet/libros-servlet" method="post">
+        <label for="operaciones">Qué operación desea realizar:</label>
+        <select name="operaciones" id="operaciones">
+            <option value="insert">Añadir</option>
+            <option value="update">Actualizar</option>
+            <option value="delete">Eliminar</option>
+            <option value="show">Mostrar libro por ISBN</option>
+        </select>
+        <label for="isbn">Introduzca el ISBN:</label>
+        <input type="text" name="isbn" id="isbn">
+        <label for="titulo">Introduzca el título:</label>
+        <input type="text" name="titulo" id="titulo">
+        <label for="autor">Introduzca el autor:</label>
+        <input type="text" name="autor" id="autor">
+        <button type="submit">Enviar</button>
+    </form>
+    <form action="http://localhost:8080/ejemploServlet/libros-servlet" method="get">
+        <button type="submit">Mostrar todos los libros</button>
+    </form>
+</div>
+<div id="caja-resultado-libros">
+
+</div>
+</body>
+
+</html>
